@@ -7,31 +7,30 @@ package Model;
 import java.io.Serializable;
 
 /**
- *
- * @author Stelio Mondlane
+ * Class representing a patient accompanist
  */
-public class Acompanhate extends Pessoa implements Serializable{
+public class Acompanhante extends Pessoa implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String tipo;
     private String sexo;
-
-    public Acompanhate(String BI, String nome, String telefone, String endereco) {
+    
+    public Acompanhante(String BI, String nome, String telefone, String endereco) {
         super(BI, nome, telefone, endereco);
     }
-
+    
     public String getTipo() {
         return tipo;
     }
-
+    
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-
+    
     public String getSexo() {
         return sexo;
     }
-
+    
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
-    
 }

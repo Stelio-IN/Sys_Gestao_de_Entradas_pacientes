@@ -151,7 +151,7 @@ public class GestorController {
     // ==================== SERVIÇOS ====================
     public void cadastrarServico(String id, String nomeServico, String descricao) {
         listaServico = f1.carregarDoArquivo("servico");
-        Servico s = new Servico(id, nomeServico, descricao);
+        Servico s = new Servico(id, nomeServico, descricao,50);
         listaServico.add(s);
         f1.gravarEmArquivo(listaServico, "servico");
     }

@@ -17,16 +17,16 @@ import java.util.ArrayList;
  */
 public class main {
     public static void main(String[] args) {
-     //   Especialidade b = new Especialidade("Pediatrea", "Trata de sei la ");
-     //   GestorController c = new GestorController();
-    //    c.cadastrarMedico(b, "Abc", "123asdsad", "123dsfdsf", "1313213", "dsasadsadd", "sadsd", "maputo");
-       //   c.cadastrarMedico(b, "Sam", "123", "123", "1313213", "dsasadsadd", "sadsd", "maputo");
+        Especialidade b = new Especialidade("Pediatrea", "Trata de sei la ");
+        GestorController c = new GestorController();
+      //  c.cadastrarMedico(b, "Abc", "456", "456", "1313213", "456", "4", "maputo");
+       //   c.cadastrarMedico(b, "Sam", "123", "123", "abcd", "123", "1", "maputo");
            //  GestorController c = new GestorController();
            
         //   c.desativarMedico("Sam");
-       //      c.listarMedico();
+             c.listarMedico();
              
-        Ficheiro f1 = new Ficheiro();
+    /*    Ficheiro f1 = new Ficheiro();
         Gestor a = new Gestor();
         a.setCod("Admin123");
         a.setEmail("admin@gmail.com");
@@ -34,6 +34,6 @@ public class main {
         
         ArrayList<Gestor> lista = new ArrayList<>();
         lista.add(a);
-        f1.gravarEmArquivo(lista, "gestor");
+        f1.gravarEmArquivo(lista, "gestor");*/
     }
 }

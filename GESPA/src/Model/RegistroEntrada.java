@@ -11,7 +11,7 @@ public class RegistroEntrada  implements Serializable{
     Recepcionista recepcionista;
     String estadoPaciente;
     Servico servico;
-    Acompanhate acompanhate;
+    Acompanhante acompanhate;
     Paciente paciente;
 
     public String getIdRegistro() {
@@ -54,13 +54,15 @@ public class RegistroEntrada  implements Serializable{
         this.servico = servico;
     }
 
-    public Acompanhate getAcompanhate() {
+    public Acompanhante getAcompanhate() {
         return acompanhate;
     }
 
-    public void setAcompanhate(Acompanhate acompanhate) {
+    public void setAcompanhate(Acompanhante acompanhate) {
         this.acompanhate = acompanhate;
     }
+
+
 
     public Paciente getPaciente() {
         return paciente;
