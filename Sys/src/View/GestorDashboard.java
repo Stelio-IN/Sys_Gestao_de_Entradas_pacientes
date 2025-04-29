@@ -51,7 +51,7 @@ public class GestorDashboard extends JFrame {
         
         // Configuração do frame principal
         setTitle("Dashboard do Gestor - Sistema Hospitalar");
-        setSize(800, 600);
+        setSize(900, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         
@@ -69,7 +69,7 @@ public class GestorDashboard extends JFrame {
         mainPanel.setLayout(null);
         
         tabbedPane = new JTabbedPane();
-        tabbedPane.setBounds(10, 10, 765, 540);
+        tabbedPane.setBounds(10, 10, 850, 540);
         
         // Inicialização das abas
         initMedicosPanel();
@@ -95,7 +95,7 @@ public class GestorDashboard extends JFrame {
         // Área de cadastro/edição
         JPanel panelCadastro = new JPanel();
         panelCadastro.setLayout(null);
-        panelCadastro.setBounds(10, 10, 740, 200);
+        panelCadastro.setBounds(10, 10, 836, 200);
         panelCadastro.setBorder(BorderFactory.createTitledBorder("Cadastro/Edição de Médicos"));
         
         // Labels
@@ -133,7 +133,7 @@ public class GestorDashboard extends JFrame {
         txtPasswordMedico.setBounds(440, 60, 200, 25);
         
         // Combobox especialidade
-      //  cmbEspecialidade = new JComboBox<>(Especialidade.values());
+        //cmbEspecialidade = new JComboBox<>();
         cmbEspecialidade = new JComboBox<>();
         cmbEspecialidade.setBounds(440, 90, 200, 25);
         
@@ -199,7 +199,7 @@ public class GestorDashboard extends JFrame {
         // Tabela de médicos
         JPanel panelTabela = new JPanel();
         panelTabela.setLayout(null);
-        panelTabela.setBounds(10, 220, 740, 280);
+        panelTabela.setBounds(10, 220, 836, 280);
         panelTabela.setBorder(BorderFactory.createTitledBorder("Lista de Médicos"));
         
         String[] colunas = {"CRM", "Nome", "Especialidade", "Telefone", "Status"};
@@ -211,7 +211,7 @@ public class GestorDashboard extends JFrame {
         };
         tblMedicos = new JTable(medicoTableModel);
         JScrollPane scrollPane = new JScrollPane(tblMedicos);
-        scrollPane.setBounds(10, 20, 720, 250);
+        scrollPane.setBounds(10, 20, 820, 250);
         panelTabela.add(scrollPane);
         
         // Adicionar painéis ao painel de médicos
@@ -226,7 +226,7 @@ public class GestorDashboard extends JFrame {
         // Área de cadastro/edição
         JPanel panelCadastro = new JPanel();
         panelCadastro.setLayout(null);
-        panelCadastro.setBounds(10, 10, 740, 180);
+        panelCadastro.setBounds(10, 10, 836, 180);
         panelCadastro.setBorder(BorderFactory.createTitledBorder("Cadastro/Edição de Recepcionistas"));
         
         // Labels
@@ -315,7 +315,7 @@ public class GestorDashboard extends JFrame {
         // Tabela de recepcionistas
         JPanel panelTabela = new JPanel();
         panelTabela.setLayout(null);
-        panelTabela.setBounds(10, 200, 740, 300);
+        panelTabela.setBounds(10, 200, 836, 300);
         panelTabela.setBorder(BorderFactory.createTitledBorder("Lista de Recepcionistas"));
         
         String[] colunas = {"Cód. Func.", "Nome", "Telefone", "Endereço", "Status"};
@@ -327,7 +327,7 @@ public class GestorDashboard extends JFrame {
         };
         tblRecepcionistas = new JTable(recepTableModel);
         JScrollPane scrollPane = new JScrollPane(tblRecepcionistas);
-        scrollPane.setBounds(10, 20, 720, 270);
+        scrollPane.setBounds(10, 20, 820, 270);
         panelTabela.add(scrollPane);
         
         // Adicionar painéis ao painel de recepcionistas
@@ -342,7 +342,7 @@ public class GestorDashboard extends JFrame {
         // Área de cadastro/edição
         JPanel panelCadastro = new JPanel();
         panelCadastro.setLayout(null);
-        panelCadastro.setBounds(10, 10, 740, 150);
+        panelCadastro.setBounds(10, 10, 836, 150);
         panelCadastro.setBorder(BorderFactory.createTitledBorder("Cadastro/Edição de Serviços"));
         
         // Labels
@@ -413,7 +413,7 @@ public class GestorDashboard extends JFrame {
         // Tabela de serviços
         JPanel panelTabela = new JPanel();
         panelTabela.setLayout(null);
-        panelTabela.setBounds(10, 170, 740, 330);
+        panelTabela.setBounds(10, 170, 836, 330);
         panelTabela.setBorder(BorderFactory.createTitledBorder("Lista de Serviços"));
         
         String[] colunas = {"ID", "Nome", "Descrição", "Status"};
@@ -425,7 +425,7 @@ public class GestorDashboard extends JFrame {
         };
         tblServicos = new JTable(servicoTableModel);
         JScrollPane scrollPane = new JScrollPane(tblServicos);
-        scrollPane.setBounds(10, 20, 720, 300);
+        scrollPane.setBounds(10, 20, 820, 300);
         panelTabela.add(scrollPane);
         
         // Adicionar painéis ao painel de serviços
@@ -440,7 +440,7 @@ public class GestorDashboard extends JFrame {
         // Área de seleção de relatório
         JPanel panelSelecao = new JPanel();
         panelSelecao.setLayout(null);
-        panelSelecao.setBounds(10, 10, 740, 70);
+        panelSelecao.setBounds(10, 10, 836, 70);
         panelSelecao.setBorder(BorderFactory.createTitledBorder("Seleção de Relatório"));
         
         JLabel lblTipo = new JLabel("Tipo de Relatório:");
@@ -474,7 +474,7 @@ public class GestorDashboard extends JFrame {
         // Área de visualização do relatório
         JPanel panelVisualizacao = new JPanel();
         panelVisualizacao.setLayout(null);
-        panelVisualizacao.setBounds(10, 90, 740, 410);
+        panelVisualizacao.setBounds(10, 90, 840, 410);
         panelVisualizacao.setBorder(BorderFactory.createTitledBorder("Visualização do Relatório"));
         
         txtAreaRelatorio = new JTextArea();
@@ -482,7 +482,7 @@ public class GestorDashboard extends JFrame {
         txtAreaRelatorio.setWrapStyleWord(true);
         txtAreaRelatorio.setLineWrap(true);
         JScrollPane scrollPane = new JScrollPane(txtAreaRelatorio);
-        scrollPane.setBounds(10, 20, 720, 380);
+        scrollPane.setBounds(10, 20, 820, 380);
         panelVisualizacao.add(scrollPane);
         
         // Adicionar painéis ao painel de relatórios
@@ -491,6 +491,50 @@ public class GestorDashboard extends JFrame {
     }
     
     private void carregarDados() {
+        Ficheiro f1 = new Ficheiro();
+          ArrayList<Pessoa> lista = f1.carregarDoArquivo("pessoa");
+           ArrayList<Servico> listaServico = f1.carregarDoArquivo("servico");
+         //  DefaultTableModel model = (DefaultTableModel) tabela.getModel();
+         
+       //   String[] colunas = {"CRM", "Nome", "Especialidade", "Telefone", "Status"};
+        medicoTableModel.setRowCount(0);
+        recepTableModel.setRowCount(0);
+        servicoTableModel.setRowCount(0);
+                
+        
+                 for (Pessoa p : lista) {
+                    if (p instanceof Medico) {
+                        Medico m = (Medico) p;
+                  medicoTableModel.addRow(new Object[]{((Medico) p).getCrm(),m.getNome(),m.getEspecialidade().getEspecialidade(),m.getTelefone(),m.isStatus()});
+           
+                    }
+                }
+               //  String[] colunas = {"Cód. Func.", "Nome", "Telefone", "Endereço", "Status"};
+                 for (Pessoa p : lista) {
+                    if (p instanceof Recepcionista) {
+                        Recepcionista m = (Recepcionista) p;
+                  recepTableModel.addRow(new Object[]{m.getCod_func(),m.getNome(),m.getTelefone(),m.getEndereco(),m.isStatus()});
+           
+                    }
+                }
+                 
+                 //String[] colunas = {"ID", "Nome", "Descrição", "Status"};
+                 for (Servico s : listaServico) {       
+                  servicoTableModel.addRow(new Object[]{s.getId(),s.getNomeServico(),s.getDescricao(),s.isStatus()}); 
+                }
+                 
+                 ArrayList<Especialidade> listaEspecialidades = new ArrayList<>();
+listaEspecialidades.add(new Especialidade("Cardiologia", "Trata do coração"));
+listaEspecialidades.add(new Especialidade("Pediatria", "Cuida da saúde infantil"));
+listaEspecialidades.add(new Especialidade("Dermatologia", "Trata da pele"));
+listaEspecialidades.add(new Especialidade("Ortopedia", "Trata dos ossos e articulações"));
+
+
+for (Especialidade esp : listaEspecialidades) {
+    cmbEspecialidade.addItem(esp);
+}
+
+    
         // Aqui seriam implementados os métodos para carregar os dados iniciais
         // das tabelas de médicos, recepcionistas e serviços
         // Usando os métodos do controller como listarMedico(), listarRecepcionistas() e listarServicos()
@@ -506,8 +550,8 @@ public class GestorDashboard extends JFrame {
             String endereco = txtEnderecoMedico.getText();
             String codFunc = txtCodFuncMedico.getText();
             String password = txtPasswordMedico.getText();
-          //  Especialidade especialidade = (Especialidade) cmbEspecialidade.getSelectedItem();
-            Especialidade especialidade = new Especialidade("", "");
+            Especialidade especialidade = (Especialidade) cmbEspecialidade.getSelectedItem();
+           // Especialidade especialidade = new Especialidade("", "");
             // Validação básica
             if (crm.isEmpty() || nome.isEmpty() || bi.isEmpty() || telefone.isEmpty() || 
                 endereco.isEmpty() || codFunc.isEmpty() || password.isEmpty()) {

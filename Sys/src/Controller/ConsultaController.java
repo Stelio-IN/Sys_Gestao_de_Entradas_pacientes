@@ -78,4 +78,8 @@ public class ConsultaController {
         }
         return false;
     }
+
+    public Consulta buscarConsultaPorId(String idConsulta) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
