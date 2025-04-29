@@ -753,7 +753,7 @@ public class MedicoDashboard extends JFrame {
             return;
         }
         
-        // Preencher tabela de histórico
+        // Preencher tabela de históric o
         for (Consulta c : historico) {
             if (c.getStatus() == StatusConsulta.FINALIZADA) {
                 Object[] row = {

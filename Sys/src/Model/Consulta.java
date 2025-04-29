@@ -8,7 +8,9 @@ import java.util.Date;
 public class Consulta implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    public Consulta() {}
+    public Consulta() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     // Defining status as an enum for better type safety
     public enum StatusConsulta {

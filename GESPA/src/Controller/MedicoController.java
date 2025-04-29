@@ -50,11 +50,11 @@ public class MedicoController {
         
         // Adicionar alguns pacientes de teste
         Paciente paciente1 = new Paciente("23456789", "Carlos Pereira", "912345678", "Rua da Saúde, 789");
-        paciente1.setDataNasc(1980); // Ajustado para usar o formato int conforme a classe Paciente
+        paciente1.setDataNasc("1980"); // Ajustado para usar o formato int conforme a classe Paciente
         paciente1.setGenero("M");
         
         Paciente paciente2 = new Paciente("34567890", "Ana Costa", "923456789", "Av. Central, 567");
-        paciente2.setDataNasc(1990);
+        paciente2.setDataNasc("1990");
         paciente2.setGenero("F");
         
         pacientes.add(paciente1);

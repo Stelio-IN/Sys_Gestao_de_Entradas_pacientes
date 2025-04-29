@@ -79,4 +79,8 @@ public class RegistroEntrada  implements Serializable{
     public void setAcompanhate(Acompanhante acompanhate) {
         this.acompanhate = acompanhate;
     }
+
+    
+ 
+    
 }
