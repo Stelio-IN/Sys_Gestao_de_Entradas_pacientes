@@ -15,16 +15,7 @@ public class GestorController {
     ArrayList<Servico> listaServico = new ArrayList<>();
     ArrayList<Gestor> listaGestor = new ArrayList<>();
    
-    public boolean loginGestor(String email, String password){
-       listaGestor  = f1.carregarDoArquivo("gestor");
-       Gestor a = listaGestor.get(0);
-        if(a.getEmail().equals(email) && a.getPassword().equals(password)){
-            return true;
-        }
-        return false; 
-    }
-    
-    
+
     
     // ==================== MÉDICOS ====================
     public void cadastrarMedico(Especialidade especialidade, String crm, String cod_func, String password, String BI, String nome, String telefone, String endereco) {

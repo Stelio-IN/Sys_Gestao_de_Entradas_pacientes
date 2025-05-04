@@ -8,10 +8,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-/**
- *
- * @author steli
- */
+
 public class Ficheiro {
     
      // Grava uma ArrayList em arquivo

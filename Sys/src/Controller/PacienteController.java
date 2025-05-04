@@ -1,11 +1,15 @@
 package Controller;
 
+import Model.Medico;
 import Model.Paciente;
 import Model.Pessoa;
 import java.util.ArrayList;
 
 public class PacienteController extends PessoaController {
 
+    Ficheiro f1 = new Ficheiro();
+    ArrayList<Pessoa> lista = new ArrayList<>();
+     
     @Override
     public boolean atualizarPessoa(Pessoa pessoaAtualizada) {
         return super.atualizarPessoa(pessoaAtualizada); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
@@ -28,18 +32,22 @@ public class PacienteController extends PessoaController {
             return false; // Paciente já existe
         }
         
+        lista = f1.carregarDoArquivo("pessoa");
         Paciente novoPaciente = new Paciente(bi, nome, telefone, endereco);
+       
         novoPaciente.setDataNasc(dataNasc);
         novoPaciente.setGenero(genero);
         novoPaciente.setEstado(estado);
         
-        pessoas.add(novoPaciente);
+        lista.add(novoPaciente);
+        f1.gravarEmArquivo(lista, "pessoa");
+       // pessoas.add(novoPaciente);
         return true;
     }
     
     public ArrayList<Paciente> filtrarPacientes(String filtro) {
         ArrayList<Paciente> resultados = new ArrayList<>();
-        
+        pessoas = f1.carregarDoArquivo("pessoa");
         for (Pessoa p : pessoas) {
             if (p instanceof Paciente) {
                 Paciente paciente = (Paciente) p;

@@ -4,6 +4,8 @@ import Model.Servico;
 import java.util.ArrayList;
 
 public class ServicoController {
+    
+    Ficheiro f1 = new Ficheiro();
     private ArrayList<Servico> servicos = new ArrayList<>();
     
     public boolean cadastrarServico(String id, String nome, String descricao, double valor) {
@@ -36,6 +38,7 @@ public class ServicoController {
     }
     
     public ArrayList<Servico> listarTodosServicos() {
+        servicos = f1.carregarDoArquivo("servico");
         return servicos;
     }
     

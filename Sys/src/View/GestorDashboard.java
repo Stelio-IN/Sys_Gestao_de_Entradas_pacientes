@@ -31,6 +31,7 @@ public class GestorDashboard extends JFrame {
     private JComboBox<Especialidade> cmbEspecialidade;
     private JButton btnCadastrarMedico, btnEditarMedico, btnDesativarMedico, btnReativarMedico;
     private JTable tblMedicos;
+    
     private DefaultTableModel medicoTableModel;
 
     // Componentes da aba Recepcionistas
@@ -225,26 +226,28 @@ private void initMedicosPanel() {
     
     tblMedicos = new JTable(medicoTableModel);
     tblMedicos.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+     // cor de fundo da tabela
+
     tblMedicos.setRowHeight(25);
     tblMedicos.setIntercellSpacing(new Dimension(10, 0));
     tblMedicos.setGridColor(new Color(230, 230, 230));
     tblMedicos.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
     tblMedicos.getTableHeader().setBackground(headerColor);
-    tblMedicos.getTableHeader().setForeground(Color.WHITE);
+    tblMedicos.getTableHeader().setForeground(Color.BLACK);
     tblMedicos.setSelectionBackground(new Color(184, 207, 229));
-    
+    tblMedicos.setBackground(new Color(250, 250, 255));
     // Alternância de cores nas linhas da tabela
-    tblMedicos.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
-        @Override
-        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-            Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-            if (!isSelected) {
-                c.setBackground(row % 2 == 0 ? Color.WHITE : new Color(242, 242, 242));
-            }
-            return c;
+   tblMedicos.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+    @Override
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+        Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+        if (!isSelected) {
+            c.setBackground(row % 2 == 0 ? new Color(250, 250, 255) : new Color(235, 240, 255));
         }
-    });
-    
+        return c;
+    }
+});
+
     JScrollPane scrollPane = new JScrollPane(tblMedicos);
     scrollPane.setBounds(10, 20, 820, 250);
     scrollPane.setBorder(BorderFactory.createLineBorder(new Color(200, 200, 200)));
@@ -424,7 +427,7 @@ private JButton createStyledButton(String text, int x, int y, int width, int hei
     tblRecepcionistas.setGridColor(new Color(230, 230, 230));
     tblRecepcionistas.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
     tblRecepcionistas.getTableHeader().setBackground(headerColor);
-    tblRecepcionistas.getTableHeader().setForeground(Color.WHITE);
+    tblRecepcionistas.getTableHeader().setForeground(Color.BLACK);
     tblRecepcionistas.setSelectionBackground(new Color(184, 207, 229));
     
     // Alternância de cores nas linhas da tabela
@@ -454,161 +457,238 @@ private JButton createStyledButton(String text, int x, int y, int width, int hei
 
 
 
+private void initServicosPanel() {
+    // Cores personalizadas
+    Color backgroundColor = new Color(240, 240, 240);
+    Color panelColor = new Color(245, 245, 250);
+    Color headerColor = new Color(60, 141, 188);
+    Color buttonColor = new Color(60, 141, 188);
+    Color buttonTextColor = Color.WHITE;
+    Font labelFont = new Font("Segoe UI", Font.PLAIN, 12);
+    Font headerFont = new Font("Segoe UI", Font.BOLD, 13);
+    Font buttonFont = new Font("Segoe UI", Font.BOLD, 12);
+    
+    // Configuração do painel principal
+    servicosPanel = new JPanel();
+    servicosPanel.setLayout(null);
+    servicosPanel.setBackground(backgroundColor);
 
-    private void initServicosPanel() {
-        servicosPanel = new JPanel();
-        servicosPanel.setLayout(null);
+    // Painel de cadastro com bordas arredondadas e título estilizado
+    JPanel panelCadastro = new JPanel();
+    panelCadastro.setLayout(null);
+    panelCadastro.setBounds(10, 10, 836, 150);
+    panelCadastro.setBackground(panelColor);
+    TitledBorder titledBorder = BorderFactory.createTitledBorder(
+        BorderFactory.createLineBorder(headerColor, 1),
+        "Cadastro/Edição de Serviços"
+    );
+    titledBorder.setTitleFont(headerFont);
+    titledBorder.setTitleColor(headerColor);
+    panelCadastro.setBorder(titledBorder);
 
-        // Área de cadastro/edição
-        JPanel panelCadastro = new JPanel();
-        panelCadastro.setLayout(null);
-        panelCadastro.setBounds(10, 10, 836, 150);
-        panelCadastro.setBorder(BorderFactory.createTitledBorder("Cadastro/Edição de Serviços"));
+    // Labels estilizados
+    JLabel lblId = createStyledLabel("ID:", 20, 30, 80, 25, labelFont);
+    JLabel lblNome = createStyledLabel("Nome:", 20, 60, 80, 25, labelFont);
+    JLabel lblDescricao = createStyledLabel("Descrição:", 20, 90, 80, 25, labelFont);
 
-        // Labels
-        JLabel lblId = new JLabel("ID:");
-        lblId.setBounds(20, 30, 80, 25);
-        JLabel lblNome = new JLabel("Nome:");
-        lblNome.setBounds(20, 60, 80, 25);
-        JLabel lblDescricao = new JLabel("Descrição:");
-        lblDescricao.setBounds(20, 90, 80, 25);
+    // Campos de texto estilizados
+    txtIdServico = createStyledTextField(110, 30, 200, 25);
+    txtNomeServico = createStyledTextField(110, 60, 200, 25);
+    txtDescricaoServico = createStyledTextField(110, 90, 500, 25);
 
-        // Campos de texto
-        txtIdServico = new JTextField();
-        txtIdServico.setBounds(110, 30, 200, 25);
-        txtNomeServico = new JTextField();
-        txtNomeServico.setBounds(110, 60, 200, 25);
-        txtDescricaoServico = new JTextField();
-        txtDescricaoServico.setBounds(110, 90, 500, 25);
+    // Botões estilizados
+    btnCadastrarServico = createStyledButton("Cadastrar", 350, 30, 120, 30, buttonColor, buttonTextColor, buttonFont);
+    btnCadastrarServico.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            cadastrarServico();
+        }
+    });
 
-        // Botões
-        btnCadastrarServico = new JButton("Cadastrar");
-        btnCadastrarServico.setBounds(350, 30, 120, 30);
-        btnCadastrarServico.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cadastrarServico();
+    btnEditarServico = createStyledButton("Editar", 480, 30, 80, 30, buttonColor, buttonTextColor, buttonFont);
+    btnEditarServico.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            editarServico();
+        }
+    });
+
+    btnDesativarServico = createStyledButton("Desativar", 570, 30, 100, 30, buttonColor, buttonTextColor, buttonFont);
+    btnDesativarServico.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            desativarServico();
+        }
+    });
+
+    btnReativarServico = createStyledButton("Reativar", 680, 30, 100, 30, buttonColor, buttonTextColor, buttonFont);
+    btnReativarServico.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            reativarServico();
+        }
+    });
+
+    // Adicionar componentes ao painel de cadastro
+    panelCadastro.add(lblId);
+    panelCadastro.add(txtIdServico);
+    panelCadastro.add(lblNome);
+    panelCadastro.add(txtNomeServico);
+    panelCadastro.add(lblDescricao);
+    panelCadastro.add(txtDescricaoServico);
+    panelCadastro.add(btnCadastrarServico);
+    panelCadastro.add(btnEditarServico);
+    panelCadastro.add(btnDesativarServico);
+    panelCadastro.add(btnReativarServico);
+
+    // Tabela de serviços estilizada
+    JPanel panelTabela = new JPanel();
+    panelTabela.setLayout(null);
+    panelTabela.setBounds(10, 170, 836, 330);
+    panelTabela.setBackground(panelColor);
+    TitledBorder tabelaBorder = BorderFactory.createTitledBorder(
+        BorderFactory.createLineBorder(headerColor, 1),
+        "Lista de Serviços"
+    );
+    tabelaBorder.setTitleFont(headerFont);
+    tabelaBorder.setTitleColor(headerColor);
+    panelTabela.setBorder(tabelaBorder);
+
+    String[] colunas = {"ID", "Nome", "Descrição", "Status"};
+    servicoTableModel = new DefaultTableModel(colunas, 0) {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false;
+        }
+    };
+    
+    tblServicos = new JTable(servicoTableModel);
+    tblServicos.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+    tblServicos.setRowHeight(25);
+    tblServicos.setIntercellSpacing(new Dimension(10, 0));
+    tblServicos.setGridColor(new Color(230, 230, 230));
+    tblServicos.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+    tblServicos.getTableHeader().setBackground(headerColor);
+    tblServicos.getTableHeader().setForeground(Color.WHITE);
+    tblServicos.setSelectionBackground(new Color(184, 207, 229));
+    
+    // Alternância de cores nas linhas da tabela
+    tblServicos.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+            Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            if (!isSelected) {
+                c.setBackground(row % 2 == 0 ? Color.WHITE : new Color(242, 242, 242));
             }
-        });
+            return c;
+        }
+    });
+    
+    JScrollPane scrollPane = new JScrollPane(tblServicos);
+    scrollPane.setBounds(10, 20, 820, 300);
+    scrollPane.setBorder(BorderFactory.createLineBorder(new Color(200, 200, 200)));
+    panelTabela.add(scrollPane);
 
-        btnEditarServico = new JButton("Editar");
-        btnEditarServico.setBounds(480, 30, 80, 30);
-        btnEditarServico.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                editarServico();
-            }
-        });
+    // Adicionar painéis ao painel de serviços
+    servicosPanel.add(panelCadastro);
+    servicosPanel.add(panelTabela);
+}
 
-        btnDesativarServico = new JButton("Desativar");
-        btnDesativarServico.setBounds(570, 30, 100, 30);
-        btnDesativarServico.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                desativarServico();
-            }
-        });
+private void initRelatoriosPanel() {
+    // Cores personalizadas
+    Color backgroundColor = new Color(240, 240, 240);
+    Color panelColor = new Color(245, 245, 250);
+    Color headerColor = new Color(60, 141, 188);
+    Color buttonColor = new Color(60, 141, 188);
+    Color buttonTextColor = Color.WHITE;
+    Font labelFont = new Font("Segoe UI", Font.PLAIN, 12);
+    Font headerFont = new Font("Segoe UI", Font.BOLD, 13);
+    Font buttonFont = new Font("Segoe UI", Font.BOLD, 12);
+    
+    // Configuração do painel principal
+    relatoriosPanel = new JPanel();
+    relatoriosPanel.setLayout(null);
+    relatoriosPanel.setBackground(backgroundColor);
 
-        btnReativarServico = new JButton("Reativar");
-        btnReativarServico.setBounds(680, 30, 100, 30);
-        btnReativarServico.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                reativarServico();
-            }
-        });
+    // Área de seleção de relatório
+    JPanel panelSelecao = new JPanel();
+    panelSelecao.setLayout(null);
+    panelSelecao.setBounds(10, 10, 836, 70);
+    panelSelecao.setBackground(panelColor);
+    TitledBorder selecaoBorder = BorderFactory.createTitledBorder(
+        BorderFactory.createLineBorder(headerColor, 1),
+        "Seleção de Relatório"
+    );
+    selecaoBorder.setTitleFont(headerFont);
+    selecaoBorder.setTitleColor(headerColor);
+    panelSelecao.setBorder(selecaoBorder);
 
-        // Adicionar componentes ao painel de cadastro
-        panelCadastro.add(lblId);
-        panelCadastro.add(txtIdServico);
-        panelCadastro.add(lblNome);
-        panelCadastro.add(txtNomeServico);
-        panelCadastro.add(lblDescricao);
-        panelCadastro.add(txtDescricaoServico);
-        panelCadastro.add(btnCadastrarServico);
-        panelCadastro.add(btnEditarServico);
-        panelCadastro.add(btnDesativarServico);
-        panelCadastro.add(btnReativarServico);
+    JLabel lblTipo = createStyledLabel("Tipo de Relatório:", 20, 30, 120, 25, labelFont);
+    
+    String[] tiposRelatorio = {
+        "Médicos Ativos",
+        "Médicos Inativos",
+        "Recepcionistas Ativos",
+        "Recepcionistas Inativos",
+        "Serviços Disponíveis",
+        "Serviços Indisponíveis"
+    };
+    
+    cmbTipoRelatorio = new JComboBox<>(tiposRelatorio);
+    cmbTipoRelatorio.setBounds(150, 30, 200, 25);
+    cmbTipoRelatorio.setFont(labelFont);
+    cmbTipoRelatorio.setBackground(Color.WHITE);
+    cmbTipoRelatorio.setBorder(BorderFactory.createLineBorder(new Color(200, 200, 200)));
+    
+    btnGerarRelatorio = createStyledButton("Gerar Relatório", 370, 30, 150, 30, buttonColor, buttonTextColor, buttonFont);
+    btnGerarRelatorio.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            gerarRelatorio();
+        }
+    });
 
-        // Tabela de serviços
-        JPanel panelTabela = new JPanel();
-        panelTabela.setLayout(null);
-        panelTabela.setBounds(10, 170, 836, 330);
-        panelTabela.setBorder(BorderFactory.createTitledBorder("Lista de Serviços"));
+    // Adicionar componentes ao painel de seleção
+    panelSelecao.add(lblTipo);
+    panelSelecao.add(cmbTipoRelatorio);
+    panelSelecao.add(btnGerarRelatorio);
 
-        String[] colunas = {"ID", "Nome", "Descrição", "Status"};
-        servicoTableModel = new DefaultTableModel(colunas, 0) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        };
-        tblServicos = new JTable(servicoTableModel);
-        JScrollPane scrollPane = new JScrollPane(tblServicos);
-        scrollPane.setBounds(10, 20, 820, 300);
-        panelTabela.add(scrollPane);
+    // Área de visualização do relatório
+    JPanel panelVisualizacao = new JPanel();
+    panelVisualizacao.setLayout(null);
+    panelVisualizacao.setBounds(10, 90, 836, 410);
+    panelVisualizacao.setBackground(panelColor);
+    TitledBorder visualizacaoBorder = BorderFactory.createTitledBorder(
+        BorderFactory.createLineBorder(headerColor, 1),
+        "Visualização do Relatório"
+    );
+    visualizacaoBorder.setTitleFont(headerFont);
+    visualizacaoBorder.setTitleColor(headerColor);
+    panelVisualizacao.setBorder(visualizacaoBorder);
+    
+    txtAreaRelatorio = new JTextArea();
+    txtAreaRelatorio.setEditable(false);
+    txtAreaRelatorio.setWrapStyleWord(true);
+    txtAreaRelatorio.setLineWrap(true);
+    txtAreaRelatorio.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+    txtAreaRelatorio.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+    txtAreaRelatorio.setBackground(Color.WHITE);
 
-        // Adicionar painéis ao painel de serviços
-        servicosPanel.add(panelCadastro);
-        servicosPanel.add(panelTabela);
-    }
+    JScrollPane scrollPane = new JScrollPane(txtAreaRelatorio);
+    scrollPane.setBounds(10, 20, 820, 380);
+    scrollPane.setBorder(BorderFactory.createLineBorder(new Color(200, 200, 200)));
+    panelVisualizacao.add(scrollPane);
 
-    private void initRelatoriosPanel() {
-        relatoriosPanel = new JPanel();
-        relatoriosPanel.setLayout(null);
+    // Adicionar painéis ao painel de relatórios
+    relatoriosPanel.add(panelSelecao);
+    relatoriosPanel.add(panelVisualizacao);
+}
 
-        // Área de seleção de relatório
-        JPanel panelSelecao = new JPanel();
-        panelSelecao.setLayout(null);
-        panelSelecao.setBounds(10, 10, 836, 70);
-        panelSelecao.setBorder(BorderFactory.createTitledBorder("Seleção de Relatório"));
 
-        JLabel lblTipo = new JLabel("Tipo de Relatório:");
-        lblTipo.setBounds(20, 30, 120, 25);
 
-        String[] tiposRelatorio = {
-            "Médicos Ativos",
-            "Médicos Inativos",
-            "Recepcionistas Ativos",
-            "Recepcionistas Inativos",
-            "Serviços Disponíveis",
-            "Serviços Indisponíveis"
-        };
-        cmbTipoRelatorio = new JComboBox<>(tiposRelatorio);
-        cmbTipoRelatorio.setBounds(150, 30, 200, 25);
 
-        btnGerarRelatorio = new JButton("Gerar Relatório");
-        btnGerarRelatorio.setBounds(370, 30, 150, 30);
-        btnGerarRelatorio.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                gerarRelatorio();
-            }
-        });
 
-        // Adicionar componentes ao painel de seleção
-        panelSelecao.add(lblTipo);
-        panelSelecao.add(cmbTipoRelatorio);
-        panelSelecao.add(btnGerarRelatorio);
-
-        // Área de visualização do relatório
-        JPanel panelVisualizacao = new JPanel();
-        panelVisualizacao.setLayout(null);
-        panelVisualizacao.setBounds(10, 90, 840, 410);
-        panelVisualizacao.setBorder(BorderFactory.createTitledBorder("Visualização do Relatório"));
-
-        txtAreaRelatorio = new JTextArea();
-        txtAreaRelatorio.setEditable(false);
-        txtAreaRelatorio.setWrapStyleWord(true);
-        txtAreaRelatorio.setLineWrap(true);
-        JScrollPane scrollPane = new JScrollPane(txtAreaRelatorio);
-        scrollPane.setBounds(10, 20, 820, 380);
-        panelVisualizacao.add(scrollPane);
-
-        // Adicionar painéis ao painel de relatórios
-        relatoriosPanel.add(panelSelecao);
-        relatoriosPanel.add(panelVisualizacao);
-    }
+    
 
     private void carregarDados() {
         Ficheiro f1 = new Ficheiro();
@@ -1081,7 +1161,7 @@ private JButton createStyledButton(String text, int x, int y, int width, int hei
     }
 
     // Método main para executar a aplicação
-    public static void main(String[] args) {
+ /*   public static void main(String[] args) {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
@@ -1094,5 +1174,5 @@ private JButton createStyledButton(String text, int x, int y, int width, int hei
                 new GestorDashboard();
             }
         });
-    }
+    }*/
 }

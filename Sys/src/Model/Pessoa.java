@@ -22,6 +22,9 @@ public class Pessoa implements Serializable {
         this.telefone = telefone;
         this.endereco = endereco;
     }
+
+    public Pessoa() {
+    }
     
     public String getBI() {
         return BI;

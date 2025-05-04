@@ -37,6 +37,8 @@ public class MedicoController extends PessoaController {
     }
 
     public Medico buscarPorCrm(String crm) {
+        
+         pessoas = f1.carregarDoArquivo("pessoa");
         for (Pessoa p : pessoas) {
             if (p instanceof Medico) {
                 Medico medico = (Medico) p;
@@ -47,6 +49,20 @@ public class MedicoController extends PessoaController {
         }
         return null;
     }
+        public Medico buscarPorNome(String crm) {
+        
+        pessoas = f1.carregarDoArquivo("pessoa");
+        for (Pessoa p : pessoas) {
+            if (p instanceof Medico) {
+                Medico medico = (Medico) p;
+                if (medico.getNome().equals(crm)) {
+                    return medico;
+                }
+            }
+        }
+        return null;
+    }
+
 
     public ArrayList<Medico> listarMedicosPorEspecialidade(String especialidade) {
         ArrayList<Medico> resultados = new ArrayList<>();

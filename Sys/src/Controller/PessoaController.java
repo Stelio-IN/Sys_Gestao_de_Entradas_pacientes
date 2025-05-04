@@ -4,9 +4,11 @@ import Model.Pessoa;
 import java.util.ArrayList;
 
 public abstract class PessoaController {
+    protected Ficheiro f1 = new Ficheiro();
     protected ArrayList<Pessoa> pessoas = new ArrayList<>();
     
     public Pessoa buscarPorBi(String bi) {
+        pessoas = f1.carregarDoArquivo("pessoa");
         for (Pessoa p : pessoas) {
             if (p.getBI().equals(bi)) {
                 return p;

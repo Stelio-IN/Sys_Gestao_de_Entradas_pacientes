@@ -3,10 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Stelio%20Mondlane/Documents/GitHub/Sys_Gestao_de_Entradas_pacientes/Sys/src/View/TelaLogin.java</file>
             <file>file:/C:/Users/Stelio%20Mondlane/Documents/GitHub/Sys_Gestao_de_Entradas_pacientes/Sys/src/View/main.java</file>
-            <file>file:/C:/Users/Stelio%20Mondlane/Documents/GitHub/Sys_Gestao_de_Entradas_pacientes/Sys/src/View/HospitalSystemTest.java</file>
+            <file>file:/C:/Users/Stelio%20Mondlane/Documents/GitHub/Sys_Gestao_de_Entradas_pacientes/Sys/src/Model/Gestor.java</file>
+            <file>file:/C:/Users/Stelio%20Mondlane/Documents/GitHub/Sys_Gestao_de_Entradas_pacientes/Sys/src/View/add_gestor.java</file>
             <file>file:/C:/Users/Stelio%20Mondlane/Documents/GitHub/Sys_Gestao_de_Entradas_pacientes/Sys/src/View/TelaMedico.java</file>
-            <file>file:/C:/Users/Stelio%20Mondlane/Documents/GitHub/Sys_Gestao_de_Entradas_pacientes/Sys/src/View/TelaAtendente.java</file>
+            <file>file:/C:/Users/Stelio%20Mondlane/Documents/GitHub/Sys_Gestao_de_Entradas_pacientes/Sys/src/Controller/PessoaController.java</file>
+            <file>file:/C:/Users/Stelio%20Mondlane/Documents/GitHub/Sys_Gestao_de_Entradas_pacientes/Sys/src/Model/Pessoa.java</file>
+            <file>file:/C:/Users/Stelio%20Mondlane/Documents/GitHub/Sys_Gestao_de_Entradas_pacientes/Sys/src/View/GestorDashboard.java</file>
+            <file>file:/C:/Users/Stelio%20Mondlane/Documents/GitHub/Sys_Gestao_de_Entradas_pacientes/Sys/src/Model/Medico.java</file>
+            <file>file:/C:/Users/Stelio%20Mondlane/Documents/GitHub/Sys_Gestao_de_Entradas_pacientes/Sys/src/Controller/GestorController.java</file>
+            <file>file:/C:/Users/Stelio%20Mondlane/Documents/GitHub/Sys_Gestao_de_Entradas_pacientes/Sys/src/Controller/MedicoController.java</file>
         </group>
     </open-files>
 </project-private>

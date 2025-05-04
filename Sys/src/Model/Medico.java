@@ -17,6 +17,10 @@ public class Medico extends Pessoa implements Serializable {
     private String cod_func;
     private String password;
     private boolean status;
+
+    public Medico() {
+    }
+    
     
     public Medico(Especialidade especialidade, String crm, String cod_func, 
                  String password, String BI, String nome, String telefone, String endereco) {

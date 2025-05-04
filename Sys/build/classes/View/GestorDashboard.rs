@@ -1,5 +1,7 @@
 view.GestorDashboard$11
 view.GestorDashboard$10
+view.GestorDashboard$21
+view.GestorDashboard$20
 view.GestorDashboard$15
 view.GestorDashboard$14
 view.GestorDashboard$13
@@ -9,9 +11,12 @@ view.GestorDashboard$8
 view.GestorDashboard$7
 view.GestorDashboard$9
 view.GestorDashboard$4
+null
 view.GestorDashboard$3
 view.GestorDashboard$6
 view.GestorDashboard$5
+view.GestorDashboard$19
+view.GestorDashboard$18
 view.GestorDashboard$2
 view.GestorDashboard$17
 view.GestorDashboard$1

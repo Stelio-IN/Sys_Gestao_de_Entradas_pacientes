@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import Model.*;
 import Controller.*;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 public class TelaAtendente extends JFrame {
@@ -21,6 +22,7 @@ public class TelaAtendente extends JFrame {
     private RegistroEntradaController registroController;
     private AcompanhanteController acompanhanteController;
     private ConsultaController consultaController;
+    private MedicoController medicoController = new MedicoController();
     
     private JTabbedPane abas;
     private JPanel panelRegistroEntrada, panelConsultas, panelPacientes;
@@ -542,6 +544,21 @@ public class TelaAtendente extends JFrame {
         JComboBox<String> cmbMedicoConsulta = new JComboBox<>();
         // Aqui seria necessário carregar os médicos do controller
         
+        Ficheiro f1 = new Ficheiro();
+        ArrayList<Pessoa> lista = f1.carregarDoArquivo("pessoa");
+    
+
+        for (Pessoa p : lista) {
+            if (p instanceof Medico) {
+                Medico m = (Medico) p;
+                cmbMedicoConsulta.addItem(m.getNome());
+            }
+        }
+        
+        
+        
+
+        
         JLabel lblData = new JLabel("Data (dd/mm/aaaa):");
         JTextField txtDataConsulta = new JTextField();
         
@@ -566,8 +583,15 @@ public class TelaAtendente extends JFrame {
                 
                 String hora = txtHoraConsulta.getText().trim();
                 
+                
                 // Aqui chamaria o método para agendar a consulta
+                Medico medico = new Medico();
+                  medico = medicoController.buscarPorNome(cmbMedicoConsulta.getSelectedItem().toString());
+                
                 // consultaController.agendarConsulta(...);
+                
+                ConsultaController a = new ConsultaController();
+                a.agendarConsulta(paciente, medico, servico, data, hora, "Pendente");
                 
                 JOptionPane.showMessageDialog(dialog, "Consulta agendada com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
                 dialog.dispose();
@@ -778,7 +802,7 @@ public class TelaAtendente extends JFrame {
         
         dialog.setVisible(true);
     }
-    
+  /* 
     public static void main(String[] args) {
         // Para teste - criar um recepcionista mock
         Recepcionista recepcionistaTeste = new Recepcionista(
@@ -787,5 +811,5 @@ public class TelaAtendente extends JFrame {
         );
         
         SwingUtilities.invokeLater(() -> new TelaAtendente(recepcionistaTeste));
-    }
+    }*/
 }
